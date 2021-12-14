@@ -9,7 +9,7 @@ namespace Data_Layer.Entities
 {
     class Genre
     {
-        [Required(ErrorMessage = "Укажите айди товара")
+        [Required(ErrorMessage = "Укажите айди товара")]
         [Key]
         public Guid GenreId { get; set; }
         [Required(ErrorMessage = "Укажите название жанра")]

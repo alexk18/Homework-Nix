@@ -57,6 +57,5 @@ namespace Data_Layer.Entities
         public List<Genre> Genre { get; set; }
         [Required]
         public List<Image> Image { get; set; }
-
     }
 }
