@@ -11,20 +11,32 @@ namespace Data_Layer.Entities
     class Product
     {
         [Required]
+        [Key]
+        public Guid ProductId
+        {
+            get
+            {
+                return ProductId;
+            }
+            set
+            {
+                ProductId = Guid.NewGuid();
+            }
+        }
+        [Required(ErrorMessage = "Укажите имя товара")]
         [StringLength(15)]
-        private string Name { get; set; }
-        private string Description { get; set; }
-        [Required]
-        [Range(0,9999)]
-        private int Cost { get; set; }
-        [Required]
+        public string Name { get; set; }
+        public string Description { get; set; }
+        [Required(ErrorMessage = "Укажите цену товара")]
+        public uint Cost { get; set; }
+        [Required(ErrorMessage = "Укажите количество товара")]
         [Range(0, 9999)]
-        private int Count { get; set; }
+        public int Count { get; set; }
 
-        private bool Aviable
+        public bool Aviable
         {
             get { return Aviable; }
-            set
+            private set
             {
                 if (Count == 0)
                 {
@@ -36,13 +48,15 @@ namespace Data_Layer.Entities
                 }
             }
         }
-    
 
-        private Review Review { get; set; }
         [Required]
-        private Genre Genre { get; set; }
+        public Publisher Publisher { get; set; }
+
+        public List<Review> Review { get; set; }
         [Required]
-        private List<Image> Image { get; set; }
+        public List<Genre> Genre { get; set; }
+        [Required]
+        public List<Image> Image { get; set; }
 
     }
 }

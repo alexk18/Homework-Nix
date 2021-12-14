@@ -9,9 +9,13 @@ namespace Data_Layer.Entities
 {
     class Genre
     {
-        [Required]
+        [Required(ErrorMessage = "Укажите айди товара")
+        [Key]
+        public Guid GenreId { get; set; }
+        [Required(ErrorMessage = "Укажите название жанра")]
         [StringLength(15)]
-        private string Name { get; set; }
-        private string Description { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public List<Product> products { get; set; }
     }
 }

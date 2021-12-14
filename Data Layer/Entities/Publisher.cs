@@ -10,10 +10,15 @@ namespace Data_Layer.Entities
     class Publisher
     {
         [Required]
-        [StringLength(15)]
-        private string Name { get; set; }
-        private string Description { get; set; }
+        [Key]
+        public Guid PublisherId { get; set; }
+        [Required(ErrorMessage = "Укажите название издателя")]
+        [StringLength(15, ErrorMessage = "Название большое")]
+        public string Name { get; set; }
+        public string Description { get; set; }
         [Required]
-        private string Contact { get; set; }
+        public string Contact { get; set; }
+        public List<Product> products { get; set; }
+
     }
 }
