@@ -17,5 +17,8 @@ namespace Data_Layer.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public List<Product> products { get; set; }
+
+
+        //тут был Димон Камбоджа
     }
 }
